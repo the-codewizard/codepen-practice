@@ -1,0 +1,120 @@
+:root {
+    --color-bg: #FAF8F3;
+    --color-title: #68596E;
+    --color-text: #1A1A1A;
+    --color-text-muted: #6B6B6B;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Blackbike', 'Plus Jakarta Sans', serif;
+    --spacing-md: clamp(1rem, 3vw, 2rem);
+    --spacing-lg: clamp(2rem, 5vw, 3.5rem);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+}
+
+.features {
+    background-color: var(--color-bg);
+    padding: var(--spacing-lg);
+    max-width: 100%;
+}
+
+.features__header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.features__header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--color-title, var(--color-text));
+}
+
+.features__header p {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--color-text-muted);
+    max-width: 50ch;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.features__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.features__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+.features__column--left {
+    text-align: right;
+}
+
+.features__column--center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.features__column--right {
+    text-align: left;
+}
+
+.features__item h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-title, var(--color-text));
+}
+
+.features__item p {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.features__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 296 / 662;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transform: translateY(-4vw);
+    mix-blend-mode: multiply;
+}
+
+/* Mobile: stack to single column */
+@media (max-width: 768px) {
+    .features__body {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .features__column--left,
+    .features__column--right {
+        text-align: center;
+    }
+
+    .features__header {
+        margin-bottom: var(--spacing-md);
+    }
+}
