@@ -28,6 +28,13 @@
         </ul>
     </nav>
 
+    <main class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-ring"></div>
+        <div class="hero-ring-2"></div>
+    </main>
+
     <script>
         const cur = document.getElementById('cur');
         const ring = document.getElementById('cur-ring');
@@ -47,6 +54,20 @@
             ring.style.top = ry + 'px';
             requestAnimationFrame(loop);
         })();
+
+        // Particles
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${60 + Math.random() * 40}%;
+                animation-duration: ${4 + Math.random() * 8}s;
+                animation-delay: ${Math.random() * 6}s;
+                opacity: 0;`;
+            container.appendChild(p);
+        }
     </script>
 </body>
 
